@@ -1424,7 +1424,11 @@
                          (dest->url dest)])]
                      ,@(attribs (if (or indirect-link?
                                         (and ext-id external-tag-path))
-                                    '([class "Sq"])
+                                    `([class "Sq"]
+                                      ,@(if (string? ext-id)
+                                            `([doc ,ext-id]
+                                              [rel ,(or (dest->url-in-doc dest ext-id) "???")])
+                                            `([tag ,(tag->query-string (link-element-tag e))])))
                                     null))
                      [data-pltdoc "x"])
                     ,@(if (empty-content? (element-content e))
