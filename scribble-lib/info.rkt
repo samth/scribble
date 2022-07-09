@@ -13,7 +13,6 @@
                "draw-lib" 
                "syntax-color-lib"
                "sandbox-lib"
-               "typed-racket-lib"
                ))
 (define build-deps '("rackunit-lib"))
 
